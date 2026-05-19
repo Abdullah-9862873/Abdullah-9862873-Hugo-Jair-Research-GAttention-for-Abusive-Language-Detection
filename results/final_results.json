@@ -1,0 +1,33 @@
+{
+  "CLIP": {
+    "test_f1": 0.6389730789802104,
+    "test_accuracy": 0.64,
+    "f1_per_class": [
+      0.6197183098591549,
+      0.6582278481012658
+    ]
+  },
+  "RoBERTa": {
+    "test_f1": 0.626006581385685,
+    "test_accuracy": 0.63
+  },
+  "Image-Only": {
+    "test_f1": 0.3333333333333333,
+    "test_accuracy": 0.5
+  },
+  "MAGA": {
+    "test_f1": 0.6361775275648371,
+    "test_accuracy": 0.6366666666666667,
+    "mean_gate": 0.3135041296482086,
+    "mean_divergence": 0.751951277256012
+  },
+  "Failure Analysis": {
+    "false_positive_count": 62,
+    "false_negative_count": 46,
+    "similarity_auc": 0.48764444444444444,
+    "mean_sim_fp": 0.24925777316093445,
+    "mean_sim_fn": 0.25154006481170654,
+    "mean_sim_tp": 0.24509474635124207,
+    "mean_sim_tn": 0.24886292219161987
+  }
+}
