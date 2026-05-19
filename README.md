@@ -4,29 +4,29 @@
 
 This research focuses on detecting hate speech in memes - those images with text overlays that you see everywhere on social media. The challenge here is that a meme's meaning isn't just in the image or the text alone, but in how both modalities work together. A meme that looks completely innocent in isolation might carry a completely different meaning when you consider the image-text combination.
 
-We built a system that can look at both the text and the image together to determine whether a meme is hateful or not. This is different from traditional text-only hate speech detection because memes often rely on visual context, sarcasm, and cultural references that text alone can't capture.
+I built a system that can look at both the text and the image together to determine whether a meme is hateful or not. This is different from traditional text-only hate speech detection because memes often rely on visual context, sarcasm, and cultural references that text alone can't capture.
 
 ## What Triggered This Research
 
 This work came about after studying Professor Hugo Jair Escalante's GAttention research (published at EMNLP 2025). The GAttention paper presented a novel way to think about attention mechanisms in multimodal models - specifically how to make the model explainable by looking at which parts of the input it's paying attention to when making a decision.
 
-We wanted to explore whether CLIP's joint embedding space - which allows text and images to be compared in the same mathematical space - could be leveraged for hate speech detection. The question was: can we detect hate speech better by combining both modalities rather than using either one alone?
+I wanted to explore whether CLIP's joint embedding space - which allows text and images to be compared in the same mathematical space - could be leveraged for hate speech detection. The question was: can we detect hate speech better by combining both modalities rather than using either one alone?
 
-## What We Did
+## What I Did
 
-We built and compared several approaches:
+I built and compared several approaches:
 
-1. **CLIP-based classifier**: We used CLIP's joint text-image embeddings and trained a classifier on top of them to detect hate speech.
+1. **CLIP-based classifier**: I used CLIP's joint text-image embeddings and trained a classifier on top of them to detect hate speech.
 
-2. **RoBERTa text-only**: We used a strong text-only baseline with RoBERTa to see how much performance we'd lose without visual context.
+2. **RoBERTa text-only**: I used a strong text-only baseline with RoBERTa to see how much performance we'd lose without visual context.
 
-3. **Image-only classifier**: To understand the value of each modality separately, we also trained a classifier using only images.
+3. **Image-only classifier**: To understand the value of each modality separately, I also trained a classifier using only images.
 
-4. **MAGA (Multimodal Attention Gated Architecture)**: Our custom model that learns when to trust text vs. image predictions using a learned gating mechanism. It looks at both modalities and decides which one to weight more for each specific sample.
+4. **MAGA (Multimodal Attention Gated Architecture)**: My custom model that learns when to trust text vs. image predictions using a learned gating mechanism. It looks at both modalities and decides which one to weight more for each specific sample.
 
-We trained on a dataset of 2,400 memes, validated on 300, and tested on 300. The dataset was balanced with roughly 50% hateful and 50% non-hateful content.
+I trained on a dataset of 2,400 memes, validated on 300, and tested on 300. The dataset was balanced with roughly 50% hateful and 50% non-hateful content.
 
-## Results We Got
+## Results I Got
 
 Here's how the models performed on the test set:
 
@@ -34,7 +34,7 @@ Here's how the models performed on the test set:
 |-------|---------------|---------------|
 | CLIP | 0.639 | 64.0% |
 | RoBERTa (text-only) | 0.626 | 63.0% |
-| MAGA (our model) | 0.636 | 63.7% |
+| MAGA (my model) | 0.636 | 63.7% |
 | Image-only | 0.333 | 50.0% |
 
 The results show that:
@@ -43,7 +43,7 @@ The results show that:
 - **Image-only performs poorly** - Using images alone gives essentially random predictions (50% accuracy), confirming that hate speech in memes relies heavily on text
 - **MAGA didn't improve** over CLIP - The gating mechanism didn't provide additional benefit in this dataset
 
-We also did a failure analysis and found that the model struggles with:
+I also did a failure analysis and found that the model struggles with:
 - 62 false positives (non-hateful memes incorrectly flagged as hateful)
 - 46 false negatives (hateful memes that slipped through)
 
